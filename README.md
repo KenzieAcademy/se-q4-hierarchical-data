@@ -1,7 +1,9 @@
+<img height="120" src="img/TreeDiagram.png" />
+
 # Hierarchical Data and You!
 Sometimes when categorizing data, there are potentially infinite ways that the data can be organized. For example, a file path for an operating system includes all the parent folders and the the location of the item itself, like this:
 
-  /Users/jkaufeld/demo/test.py
+    /Users/jkaufeld/demo/test.py
 
 If we're looking at an object called `test.py` and we want to find all of the "parent nodes", or the folders that contain this object, then we have to do a recursive call upwards. In a 'traditional' Django ORM setup, a naive example might look something like this:
 
@@ -22,17 +24,18 @@ This results in a database call for every single layer, which works out to three
 
 Using something called [Modified Preorder Tree Traversal (MPTT)](https://django-mptt.readthedocs.io/en/latest/tutorial.html), we can treat all our data like a gigantic tree, with a single starting point (the "root" object) and parents, siblings, and children galore. We can get the same data as above with a single call:
 
-  item.get_ancestors()
+    item.get_ancestors()
 
 ## Your Task
-The goal of this assignment is to learn about this type of database and different ways of working with it. Build a simple Django server that uses MPTT models from `django-mptt` to create a Dropbox-esque web interface where you can create "folders" and "files" in an arbitrary structure and then display that structure. We won't actually be uploading anything, just making model instances and using them to represent real data. See the rubric for more detailed information. Submit as link to your repo on Github.
+The goal of this assignment is to learn about this type of database and different ways of working with it. Build a simple Django server that uses MPTT models from `django-mptt` to create a Dropbox-esque web interface where you can create "folders" and "files" in an arbitrary structure and then display that structure. We won't actually be uploading anything, just making model instances and using them to represent real data. See the rubric for more detailed information.
 
 ### Resources
 - [MPTT Overview](https://django-mptt.readthedocs.io/en/latest/overview.html)
+- <a href="https://youtu.be/CRxjoklS8v0"><img height="120" alt="DjangoCon 2018"  src="https://img.youtube.com/vi/CRxjoklS8v0/maxresdefault.jpg" /></a>
 
 ### Extra Credit
 - 3 BONUS POINTS: Add forms to create folders / "files" without using the admin panel.
 - 5 BONUS POINTS: Add a basic authentication system where each user has their own tree. Login / logout pages / endpoints included.
 
 ## Submitting your work
-Copy and modify THIS repository to build your Django application that uses MPTT.  Use a dev branch to begin your work.  When you merge your dev branch changes to master, it will trigger a Pull Request (PR) that your instructors will use to evaluate your progress and provide commentary.
+Copy and modify THIS repository to build your Django application that uses MPTT.  Use a dev branch to begin your work.  When you merge your dev branch changes to master and push to your repo, it will trigger a Pull Request (PR) that your instructors will use to evaluate your progress and provide commentary.
